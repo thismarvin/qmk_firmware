@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-#define _WORKMAN 0
+#define _QWERTY 0
 #define _MINIMAL 1
 #define _EXTEND 2
 #define _LOWER 3
@@ -9,7 +9,7 @@
 #define _ADJUST 6
 
 enum custom_keycodes {
-	WORKMAN = SAFE_RANGE,
+	QWERTY = SAFE_RANGE,
 	EXTEND,
 	LOWER,
 	RAISE,
@@ -23,31 +23,31 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* WORKMAN
+/* QWERTY
  * ,-----------------------------------------------------------------------------------.
- * | Tab  |   Q  |   D  |   R  |   W  |   B  |   J  |   F  |   U  |   P  |   ;  | Del  |
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |Extend|   A  |   S  |   H  |   T  |   G  |   Y  |   N  |   E  |   O  |   I  |  '   |
+ * |Extend|   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   M  |   C  |   V  |   K  |   L  |   ,  |   .  |   /  | Shift|
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Shift|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Ctrl |      |      |      |Lower |Space | Bksp |Raise |      |      |      | Ctrl |
  * `-----------------------------------------------------------------------------------'
  */
-[_WORKMAN] = LAYOUT_ortho_5x12(
-	KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_DEL,
-	EXTEND,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    KC_QUOT,
-	KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+[_QWERTY] = LAYOUT_ortho_5x12(
+	KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
+	EXTEND,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
 	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SHRTCUT, SHRTCUT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 	KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, LOWER,   KC_SPC,  KC_BSPC, RAISE,   XXXXXXX, KC_RALT, KC_RGUI, KC_RCTL
 ),
 
 [_MINIMAL] =  LAYOUT_ortho_5x12(
-	KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_DEL,
-	EXTEND,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    KC_QUOT,
-	KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+	KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
+	EXTEND,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
 	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LOWER,   KC_SPC,  KC_BSPC, RAISE,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 ),
@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_SHORTCUT] = LAYOUT_ortho_5x12(
 	_______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), G(KC_5), G(KC_6), G(KC_7), G(KC_8), G(KC_9), G(KC_0), _______,
-	_______, _______, _______, MGS_J,   MGS_K,   _______, G(KC_H), G(KC_J), G(KC_K), G(KC_L), _______, _______,
+	_______, _______, _______, MGS_J,   MGS_K,   _______, G(KC_D), G(KC_Y), G(KC_N), G(KC_M), _______, _______,
 	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
 	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
 	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
@@ -166,7 +166,7 @@ void leader_end_user(void) {
         return;
     }
 
-    if (leader_sequence_two_keys(KC_W, KC_Q)) {
+    if (leader_sequence_two_keys(KC_R, KC_Q)) {
         SEND_STRING(
             SS_DOWN(X_LGUI)
             SS_DOWN(X_LSFT)
@@ -186,9 +186,9 @@ void persistent_default_layer_set(uint16_t default_layer) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	switch (keycode) {
-		case WORKMAN: {
+		case QWERTY: {
 			if (record->event.pressed) {
-				persistent_default_layer_set(1UL<<_WORKMAN);
+				persistent_default_layer_set(1UL<<_QWERTY);
 			}
 
 			return false;
