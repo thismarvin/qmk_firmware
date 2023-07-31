@@ -17,8 +17,6 @@ enum custom_keycodes {
 	ADJUST,
 	OSM_CTL,
 	OSM_GUI,
-	MGS_J,
-	MGS_K,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -130,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_SHORTCUT] = LAYOUT_ortho_5x12(
 	_______, G(KC_1), G(KC_2), G(KC_3), G(KC_4), G(KC_5), G(KC_6), G(KC_7), G(KC_8), G(KC_9), G(KC_0), _______,
-	_______, _______, _______, MGS_J,   MGS_K,   _______, G(KC_D), G(KC_Y), G(KC_N), G(KC_M), _______, _______,
+	_______, _______, _______, _______, _______, _______, G(KC_D), G(KC_Y), G(KC_N), G(KC_M), _______, _______,
 	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
 	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
 	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
@@ -258,32 +256,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				layer_on(_MINIMAL);
 			} else {
 				layer_off(_MINIMAL);
-			}
-
-			return false;
-		}
-		case MGS_J: {
-			if (record->event.pressed) {
-				SEND_STRING(
-					SS_DOWN(X_LGUI)
-					SS_DOWN(X_LSFT)
-					SS_TAP(X_J)
-					SS_UP(X_LSFT)
-					SS_UP(X_LGUI)
-				);
-			}
-
-			return false;
-		}
-		case MGS_K: {
-			if (record->event.pressed) {
-				SEND_STRING(
-					SS_DOWN(X_LGUI)
-					SS_DOWN(X_LSFT)
-					SS_TAP(X_K)
-					SS_UP(X_LSFT)
-					SS_UP(X_LGUI)
-				);
 			}
 
 			return false;
