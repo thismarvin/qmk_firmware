@@ -5,3 +5,6 @@
 #define LEADER_TIMEOUT 200
 
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+
+#define MK_3_SPEED
+#define MK_C_OFFSET_2 12

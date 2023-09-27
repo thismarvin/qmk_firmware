@@ -2,21 +2,22 @@
 
 #define _WORKMAN 0
 #define _QWERTY 1
-#define _MINIMAL 2
-#define _EXTEND 3
-#define _LOWER 4
-#define _RAISE 5
-#define _SHORTCUT 6
-#define _ADJUST 7
+#define _MOUSE 2
+#define _MINIMAL 3
+#define _EXTEND 4
+#define _SHORTCUT 5
+#define _LOWER 6
+#define _RAISE 7
+#define _ADJUST 8
 
 enum custom_keycodes {
     WORKMAN = SAFE_RANGE,
     QWERTY,
+    MOUSE,
     EXTEND,
+    SHRTCUT,
     LOWER,
     RAISE,
-    SHRTCUT,
-    ADJUST,
     OSM_CTL,
     OSM_GUI,
     OSM_ALT,
@@ -31,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * | Shift|   Z  |   X  |   M  |   C  |   V  |   K  |   L  |   ,  |   .  |   /  | Shift|
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * |      |      |      |      |      | SHRT | SHRT |      |      |      | ???? |      |
+     * |      |      |      |      |      | SHRT | SHRT |      |      | ???? | ???? |      |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * | Ctrl | Gui  | Alt  |      |LOWER |Space | Bksp |RAISE |      |  Alt | Gui  | Ctrl |
      * `-----------------------------------------------------------------------------------'
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_DEL,
         EXTEND,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    KC_QUOT,
         KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SHRTCUT, SHRTCUT, XXXXXXX, XXXXXXX, XXXXXXX, QWERTY,  XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SHRTCUT, SHRTCUT, XXXXXXX, XXXXXXX, MOUSE,   QWERTY,  XXXXXXX,
         KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, LOWER,   KC_SPC,  KC_BSPC, RAISE,   XXXXXXX, KC_RALT, KC_RGUI, KC_RCTL
     ),
 
@@ -52,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Shift|
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * |      |      |      |      |      |      |      |      |      |      |      | ???? |
+     * |      |      |      |      |      |      |      |      |      | ???? |      | ???? |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * | Ctrl | Gui  | Alt  |      | Esc  |Space | Bksp |      |      |  Alt | Gui  | Ctrl |
      * `-----------------------------------------------------------------------------------'
@@ -61,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
         EXTEND,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, WORKMAN,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, MOUSE,   XXXXXXX, WORKMAN,
         KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, KC_ESC,  KC_SPC,  KC_BSPC, XXXXXXX, XXXXXXX, KC_RALT, KC_RGUI, KC_RCTL
     ),
 
@@ -84,6 +85,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SPC,  KC_BSPC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+    ),
+
+    /* Mouse
+     * ,-----------------------------------------------------------------------------------.
+     * |      |      | ???? |      |      |      |      | ???? | ???? | ???? |      |      |
+     * |------+------+------+------+------+------+------+------+------+------+------+------|
+     * |      | ???? | ???? | ???? |      |      | ???? | ???? | ???? | ???? |      |      |
+     * |------+------+------+------+------+------+------+------+------+------+------+------|
+     * | Shift|      |      |      |      |      |      |      |      |      |      |      |
+     * |------+------+------+------+------+------+------+------+------+------+------+------|
+     * |      |      |      |      |      |      |      |      |      |      | ???? | ???? |
+     * |------+------+------+------+------+------+------+------+------+------+------+------|
+     * |      |      |      |      | ???? | ???? |      |      |      |      |      |      |
+     * `-----------------------------------------------------------------------------------'
+     */
+    [_MOUSE] =  LAYOUT_ortho_5x12(
+        XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, XXXXXXX,
+        XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXXXXXX, XXXXXXX,
+        KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QWERTY,  WORKMAN,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN2, KC_BTN1, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
     ),
 
     /* Extend
@@ -259,6 +281,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
             return false;
         }
+        case MOUSE: {
+            if (record->event.pressed) {
+                persistent_default_layer_set(1UL << _MOUSE);
+            }
+
+            return false;
+        }
         case EXTEND: {
             if (record->event.pressed) {
                 layer_on(_EXTEND);
@@ -296,15 +325,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
 
             update_tri_layer(_LOWER, _RAISE, _ADJUST);
-
-            return false;
-        }
-        case ADJUST: {
-            if (record->event.pressed) {
-                layer_on(_ADJUST);
-            } else {
-                layer_off(_ADJUST);
-            }
 
             return false;
         }
