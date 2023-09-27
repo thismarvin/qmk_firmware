@@ -51,17 +51,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Shift|
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * |      |      |      |      |      | SHRT | SHRT |      |      |      |      | ???? |
+     * |      |      |      |      |      |      |      |      |      |      |      | ???? |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * | Ctrl | Gui  | Alt  |      |LOWER |Space | Bksp |RAISE |      |  Alt | Gui  | Ctrl |
+     * | Ctrl | Gui  | Alt  |      | Esc  |Space | Bksp |      |      |  Alt | Gui  | Ctrl |
      * `-----------------------------------------------------------------------------------'
      */
     [_QWERTY] = LAYOUT_ortho_5x12(
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
         EXTEND,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SHRTCUT, SHRTCUT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, WORKMAN,
-        KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, LOWER,   KC_SPC,  KC_BSPC, RAISE,   XXXXXXX, KC_RALT, KC_RGUI, KC_RCTL
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, WORKMAN,
+        KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, KC_ESC,  KC_SPC,  KC_BSPC, XXXXXXX, XXXXXXX, KC_RALT, KC_RGUI, KC_RCTL
     ),
 
     /* Minimal
