@@ -19,6 +19,7 @@ enum custom_keycodes {
     ADJUST,
     OSM_CTL,
     OSM_GUI,
+    OSM_ALT,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -124,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, KC_LCBR, KC_RCBR, KC_UNDS, KC_EQL,  KC_BSLS,
         _______, _______, _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, KC_MINS, KC_PLUS, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        OSM_GUI, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, QK_LEAD
+        OSM_ALT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, QK_LEAD
     ),
 
     /* Raise
@@ -145,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  KC_GRV, KC_TILD, KC_LPRN, KC_RPRN, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        QK_LEAD, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, OSM_GUI
+        QK_LEAD, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, OSM_ALT
     ),
 
     /* Shortcut
@@ -320,6 +321,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case OSM_GUI: {
             if (record->event.pressed) {
                 set_oneshot_mods(MOD_BIT(KC_LGUI));
+                layer_on(_MINIMAL);
+            } else {
+                layer_off(_MINIMAL);
+            }
+
+            return false;
+        }
+        case OSM_ALT: {
+            if (record->event.pressed) {
+                set_oneshot_mods(MOD_BIT(KC_LALT));
                 layer_on(_MINIMAL);
             } else {
                 layer_off(_MINIMAL);
