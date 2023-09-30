@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * | Shift|   Z  |   X  |   M  |   C  |   V  |   K  |   L  |   ,  |   .  |   /  | Shift|
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * |      |      |      |      |      | SHRT | SHRT |      |      | ???? | ???? |      |
+     * |      |      |      |      |      | SHRT | SHRT |      |      |      |      |      |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * | Ctrl | Gui  | Alt  |      |LOWER |Space | Bksp |RAISE |      |  Alt | Gui  | Ctrl |
      * `-----------------------------------------------------------------------------------'
@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN, KC_DEL,
         EXTEND,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I,    KC_QUOT,
         KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SHRTCUT, SHRTCUT, XXXXXXX, XXXXXXX, MOUSE,   QWERTY,  XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SHRTCUT, SHRTCUT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, LOWER,   KC_SPC,  KC_BSPC, RAISE,   XXXXXXX, KC_RALT, KC_RGUI, KC_RCTL
     ),
 
@@ -53,17 +53,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Shift|
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * |      |      |      |      |      |      |      |      |      | ???? |      | ???? |
+     * |      |      |      |      |      |LOWER |RAISE |      |      |  Up  |      |      |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * | Ctrl | Gui  | Alt  |      | Esc  |Space | Bksp |      |      |  Alt | Gui  | Ctrl |
+     * | Ctrl | Gui  | Alt  |      | Esc  |Space | Bksp |      | Left | Down | Right|      |
      * `-----------------------------------------------------------------------------------'
      */
     [_QWERTY] = LAYOUT_ortho_5x12(
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
         EXTEND,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
         KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, MOUSE,   XXXXXXX, WORKMAN,
-        KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, KC_ESC,  KC_SPC,  KC_BSPC, XXXXXXX, XXXXXXX, KC_RALT, KC_RGUI, KC_RCTL
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LOWER,   RAISE,   XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX,
+        KC_LCTL, KC_LGUI, KC_LALT, XXXXXXX, KC_ESC,  KC_SPC,  KC_BSPC, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX
     ),
 
     /* Minimal
@@ -95,17 +95,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * | Shift|      |      |      |      |      |      |      |      |      |      |      |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * |      |      |      |      |      |      |      |      |      |      | ???? | ???? |
+     * |      |      |      |      |      |      |      |      |      |      |      |      |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * |      |      |      |      | ???? | ???? |      |      |      |      |      |      |
+     * |      |      |      |      | ???? | ???? |      |      |      |      |      | ???? |
      * `-----------------------------------------------------------------------------------'
      */
     [_MOUSE] =  LAYOUT_ortho_5x12(
         XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, XXXXXXX,
         XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, XXXXXXX, XXXXXXX,
         KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QWERTY,  WORKMAN,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN2, KC_BTN1, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BTN2, KC_BTN1, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, WORKMAN
     ),
 
     /* Extend
@@ -196,7 +196,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------------------------------.
      * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * |CpsLck|      |      |      |      |      |      |      |      |      |      |      |
+     * |CpsLck|      |      |      |      |      |      | ???? | ???? | ???? |      |      |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * |      |      |      |      |      |      |      |      |      |      |      |      |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -207,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_ADJUST] = LAYOUT_ortho_5x12(
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-        KC_CAPS, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        KC_CAPS, _______, _______, _______, _______, _______, _______, WORKMAN, QWERTY,  MOUSE,   _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         OSM_GUI, _______, _______, _______, _______, _______, _______, _______, _______, QK_BOOT, _______, OSM_GUI
